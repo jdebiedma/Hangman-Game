@@ -21,14 +21,16 @@ var guessesLeftText = document.getElementById("guesses-Left-Text");
 
 var guessesLeft = 6;
 
-console.log("Answer = " + choice.toLowerCase());
+console.log("Answer = " + choice);
 
 
 
-// letterArray is the correct letters, letterList is what we guessed so far.
+// letterArray is the correct letters (in all caps), letterList is what we guessed so far.
 
 var letterArray = [];
 var blankSpaces = [];
+var letterArrayProper = [];
+
 for (var i = 0; i < choice.length; i++) {
     letterArray.push(choice.charAt(i).toLowerCase());
 
@@ -42,6 +44,17 @@ for (var i = 0; i < (choice.length); i++) {
 
 }
 
+// letterArrayProper is the actual word with correct capitalization.
+
+for (var i = 0; i < choice.length; i++) {
+    letterArrayProper.push(choice.charAt(i));
+
+}
+
+  console.log(letterArrayProper);
+
+
+
 
 
 
@@ -54,6 +67,9 @@ for (var i = 0; i < (choice.length); i++) {
      
       document.onkeyup = function(e) {
 
+
+        if(blankSpaces.indexOf("_") != -1) {
+
       	if (e.keyCode > 64 && e.keyCode < 91) {
 
       		if (keyCodeList.indexOf(e.keyCode) === -1) {
@@ -65,7 +81,7 @@ for (var i = 0; i < (choice.length); i++) {
             
 
         letterEntry.textContent = event.key;
-        letterList.push(letterEntry.textContent.toLowerCase());
+        letterList.push(letterEntry.textContent.toUpperCase());
         letterEntry.textContent = letterList;
         keyCodeList.push(e.keyCode);
 
@@ -85,9 +101,10 @@ for (var i = 0; i < (choice.length); i++) {
 
         for (var i = 0; i < blankSpaces.length; i++) {
           
-        if (letterArray[i] === event.key) {
+        if (letterArray[i] === event.key.toLowerCase() || 
+          letterArray[i] === event.key.toUpperCase()) {
 
-            blankSpaces[i] = event.key;
+            blankSpaces[i] = letterArrayProper[i];
             
             blankSpaces.join("");
             $("#spaces-text").html(blankSpaces);
@@ -106,14 +123,38 @@ for (var i = 0; i < (choice.length); i++) {
 
       
 
+      }
+
   }
 
    if (guessesLeft === 0) {
     guessesLeft = guessesLeft - 1;
 
-       alert("Game Over. Refresh to try again.");
+       $("#win-condition").html("Game Over.");
+
+       setTimeout(function () {
+             
+                    location.reload();
+                          
+                          }, 2000);
 
        
+
+        }
+
+          if(blankSpaces.indexOf("_") === -1) {
+
+          $("#win-condition").html("You won!");
+
+          //wait three seconds
+
+            setTimeout(function () {
+             
+                    location.reload();
+                          
+                          }, 2000);
+
+
 
         }
   
