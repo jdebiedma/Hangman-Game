@@ -108,6 +108,7 @@ for (var i = 0; i < choice.length; i++) {
             
             blankSpaces.join("");
             $("#spaces-text").html(blankSpaces);
+
             
         }
 
@@ -130,13 +131,18 @@ for (var i = 0; i < choice.length; i++) {
    if (guessesLeft === 0) {
     guessesLeft = guessesLeft - 1;
 
-       $("#win-condition").html("Game Over.");
+       
+       $("#win-condition").append("<br>" + "<br>");
+       $("#answer-reminder").html("Correct answer: " + choice);
+       $("#answer-reminder").fadeIn();
+       $("#win-condition").fadeIn();
+       $(".smash-logo").attr("src", "http://www.powerpointhintergrund.com/uploads/red-text-game-over-png-transparent-4.png");
 
        setTimeout(function () {
              
                     location.reload();
                           
-                          }, 2000);
+                          }, 5000);
 
        
 
@@ -145,14 +151,78 @@ for (var i = 0; i < choice.length; i++) {
           if(blankSpaces.indexOf("_") === -1) {
 
           $("#win-condition").html("You won!");
+          $("#win-condition").fadeIn();
+          $(".boxxx").css("border-color", "green")
+          $(".boxxx").fadeIn(500).fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500);
 
+            if (choice === "Jigglypuff") {
+
+          $(".smash-logo").attr("src", "https://media.giphy.com/media/eXUlPn1gmZavu/giphy.gif");
+
+
+            }
+
+            else if (choice === "Mario") {
+                $(".smash-logo").attr("src", "https://media.giphy.com/media/atQF1zaSGq8s8/giphy.gif");
+
+            }
+
+            else if (choice === "Luigi") {
+                $(".smash-logo").attr("src", "https://media.giphy.com/media/iMKtx7INZvQZO/giphy.gif");
+
+            }
+
+            else if (choice === "Pikachu") {
+                $(".smash-logo").attr("src", "https://media.giphy.com/media/IfuEfxTfeorNS/giphy.gif");
+
+            }
+
+            else if (choice === "Samus") {
+                $(".smash-logo").attr("src", "https://media.giphy.com/media/c9Mf6QdYOqc7e/source.gif");
+
+            }
+
+            else if (choice === "Link") {
+                $(".smash-logo").attr("src", "https://media.giphy.com/media/NVBR6cLvUjV9C/giphy.gif");
+
+            }
+
+            else if (choice === "Kirby") {
+                $(".smash-logo").attr("src", "https://media.giphy.com/media/5ev3alRsskWA0/giphy.gif");
+
+            }
+
+            else if (choice === "Falcon") {
+                $(".smash-logo").attr("src", "https://media.giphy.com/media/vl2wBbQc5t4as/giphy.gif");
+
+            }
+
+             else if (choice === "Ness") {
+                $(".smash-logo").attr("src", "https://media.giphy.com/media/S9ljg44rSGMU0/giphy.gif");
+
+            }
+
+            else if (choice === "Yoshi") {
+                $(".smash-logo").attr("src", "https://media.giphy.com/media/mn9hjkJRSOzsY/giphy.gif");
+
+            }
+
+            else if (choice === "Fox") {
+                $(".smash-logo").attr("src", "http://24.media.tumblr.com/8ebadc0e15453de42271271f796adb3d/tumblr_n3zkeeisHc1qbc2ylo1_500.gif");
+
+            }
+
+            else if (choice === "DK") {
+                $(".smash-logo").attr("src", "https://media.giphy.com/media/geplAcfKGZMTS/giphy.gif");
+
+            }
           //wait three seconds
 
             setTimeout(function () {
              
                     location.reload();
                           
-                          }, 2000);
+                          }, 3500);
 
 
 

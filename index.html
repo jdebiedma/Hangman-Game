@@ -6,32 +6,61 @@
 
 <link rel="stylesheet" type="text/css" href="https://bootswatch.com/cyborg/bootstrap.min.css">
 
+<link href="https://fonts.googleapis.com/css?family=Bangers|Sigmar+One" rel="stylesheet">
+
 </head>
 <body>
 
-<h1 style="text-align: center;">Hangman Time!</h1>
+<h1 style="text-align: center; margin-bottom: 0px; font-family: 'Bangers', cursive;">Hangman: Super Smash Bros. Edition!</h1>
 
 <br>
-<br>
 
-
-
-<h2 id="spaces-text" style="letter-spacing: 20px; text-align: center;"><span><strong></strong></span></h2>
+<img class = "smash-logo" style = "height: 200px; display:block;
+    margin:auto;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/SmashBall.svg/2000px-SmashBall.svg.png">
 
 <br>
+
+<div class = "row" style="margin: 20px;">
+
+<div style = "border-style: solid; border-color: red; height: 180px;" class = "boxxx col-md-6">
+
+
+
+
+<h2 id="spaces-text" style="letter-spacing: 20px; margin-top: 40px; text-align: center;"><span><strong></strong></span></h2>
+
 <br>
 
-<h1 id = "win-condition" style="text-align: center;"></h1>
+<p id ="answer-reminder" style = "display: none; text-align: center; font-size: 30px; color: lightgreen;">Test</p>
+
+</div>
+
+<!-- this is the 2nd column of the top row -->
+<div style = "border-style: solid; border-color: red; height: 180px;" class = "boxxx col-md-6">
+
+<h2 style = "margin-left: 20px; font-size: 30px;  ">Letters Guessed:   <span id="letter-Entry"><strong></strong></span></h2>
+
 
 <br>
-<br>
 
-<h2 style = "margin-left: 20px">Letters Guessed:   <span id="letter-Entry"><strong></strong></span></h2>
+<h2 style = "margin-left: 20px;font-size: 30px">Guesses Left: <span id="guesses-Left-Text"><strong>6</strong></span></h2>
 
-<br>
-<br>
 
-<h2 style = "margin-left: 20px">Guesses Left: <span id="guesses-Left-Text"><strong>6</strong></span></h2>
+</div>
+
+
+<!-- this is the 2nd column of the top row -->
+
+
+</div>
+
+
+
+<h2 id = "win-condition" style="text-align: center; display: none; height: 50px; font-family: 'Sigmar One', cursive;"></h2>
+
+
+
+
 
 
 <script type="text/javascript" src = "assets/javascript/game.js"></script>
