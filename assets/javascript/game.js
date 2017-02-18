@@ -146,7 +146,7 @@ for (var i = 0; i < choice.length; i++) {
              
                     location.reload();
                           
-                          }, 5000);
+                          }, 7000);
 
        
 
@@ -230,7 +230,7 @@ for (var i = 0; i < choice.length; i++) {
              
                     location.reload();
                           
-                          }, 6300);
+                          }, 7300);
 
 
 
