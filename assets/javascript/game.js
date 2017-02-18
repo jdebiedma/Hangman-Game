@@ -138,6 +138,10 @@ for (var i = 0; i < choice.length; i++) {
        $("#win-condition").fadeIn();
        $(".smash-logo").attr("src", "http://www.powerpointhintergrund.com/uploads/red-text-game-over-png-transparent-4.png");
 
+       var audioElement = document.createElement("audio");
+          audioElement.setAttribute("src", "assets/gameover.mp3");
+          audioElement.play();
+
        setTimeout(function () {
              
                     location.reload();
@@ -154,6 +158,10 @@ for (var i = 0; i < choice.length; i++) {
           $("#win-condition").fadeIn();
           $(".boxxx").css("border-color", "green")
           $(".boxxx").fadeIn(500).fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500);
+
+          var audioElement = document.createElement("audio");
+          audioElement.setAttribute("src", "assets/correct.mp3");
+          audioElement.play();
 
             if (choice === "Jigglypuff") {
 
@@ -222,7 +230,7 @@ for (var i = 0; i < choice.length; i++) {
              
                     location.reload();
                           
-                          }, 3500);
+                          }, 6300);
 
 
 
