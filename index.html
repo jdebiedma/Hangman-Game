@@ -9,6 +9,70 @@
 <link href="https://fonts.googleapis.com/css?family=Bangers|Sigmar+One" rel="stylesheet">
 
 </head>
+
+<style>
+  body {
+    
+  }
+
+  .letter {
+    width: 40px;
+    height: 40px;
+    border-style: solid;
+    padding: 2px;
+    float: left;
+    margin: 2px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    background-color: black;
+    
+  }
+
+
+
+  .letter-button-color {
+    color: white;
+  }
+
+  .fridge-color {
+    color: orange;
+  }
+
+  #display {
+    margin-top: 78px;
+    height: 500px;
+    width: 220px;
+    margin-left: 60px;
+  }
+
+  #buttons {
+    padding-top: 10px;
+    text-align: center;
+    margin-left: 20px;
+    display: inline-block;
+  }
+
+  #lord {
+
+  	 width: 100%;
+  
+  
+  position: relative;
+  text-align:center;
+  }
+
+ 
+
+  #clear {
+    margin-left: 20px;
+    font-size: 25px;
+    color: black;
+    border-style: solid;
+    width: 100px;
+  }
+
+</style>
+
 <body>
 
 <h1 style="text-align: center; margin-bottom: 0px; font-family: 'Bangers', cursive;">Hangman: Super Smash Bros. Edition!</h1>
@@ -19,6 +83,7 @@
     margin:auto;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/SmashBall.svg/2000px-SmashBall.svg.png">
 
 <br>
+
 
 <div class = "row" style="margin: 20px;">
 
@@ -57,6 +122,12 @@
 
 
 <h2 id = "win-condition" style="text-align: center; display: none; height: 50px; font-family: 'Sigmar One', cursive;"></h2>
+<div id = "lord" class = "row">
+	<div class = "col-md-12">
+
+<p id = "buttons"></p>
+</div>
+</div>
 
 
 

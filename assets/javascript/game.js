@@ -30,6 +30,7 @@ console.log("Answer = " + choice);
 var letterArray = [];
 var blankSpaces = [];
 var letterArrayProper = [];
+var typeList = [];
 
 for (var i = 0; i < choice.length; i++) {
     letterArray.push(choice.charAt(i).toLowerCase());
@@ -54,42 +55,107 @@ for (var i = 0; i < choice.length; i++) {
   console.log(letterArrayProper);
 
 
+ var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", 
+      "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",];
+
+      for (var i = 0; i < letters.length; i++) {
+
+      var letterBtn = $("<button>")
+      .addClass("letter-button letter letter-button-color")
+      .data("data-letter",  letters[i])
+      .text(letters[i])
+      .attr("keyCode", letters[i].charCodeAt(0))
+      .appendTo("#buttons");
+
+      
+
+    }
+
+     
+
+    $(document).ready(function () {
+
+    // Create a new jQuery event from the keyup document event.
+    var keyupEvent = $.Event("keyup");
+    
+    /* Here we are going to create an onClick event for the button or buttons
+     * that you want to target. You'll need to create the buttons in your html
+     * and make sure that it has the correct attribute setup. In this case I'm
+     * using a keyCode attribute but you could name it whatever you'd like.
+     */
+    $(".letter-button").on("click", function(e) {
+
+        /* This will grab the keyCode attribute from the DOM element and set it
+         * as the keyCode for the click event that is going to trigger the
+         * keyup event.xd
+        */
+        keyupEvent.keyCode = $(this).attr('keyCode');
+
+
+        
+
+        // Here is where we trigger the keyupEvent that we created earlier.
+        //$(this).trigger(keyupEvent);
+
+        handleInput(keyupEvent);
+        
+    });
+
+});
 
 
 
 
+  /*  $(".letter-button").on("click", function(e) { 
+
+          // $(".letter-button").text($(this).data("data-letter")
+          var letterTest = $(this).data("data-letter")
+
+          var $this = $(this),
+            character = $this.html();
+
+            
+
+      });
 
 
+*/
 
+            
+  
+
+      
 
 
       // Next, we give JavaScript a function to execute when onkeyup event fires.
-     
-      document.onkeyup = function(e) {
+     document.onkeyup = handleInput
+     function handleInput (e) {
 
 
         if(blankSpaces.indexOf("_") != -1) {
 
       	if (e.keyCode > 64 && e.keyCode < 91) {
 
-      		if (keyCodeList.indexOf(e.keyCode) === -1) {
+      		if (keyCodeList.indexOf(parseInt(e.keyCode)) === -1) {
 
       			if (guessesLeft > 0) {
 
-              if(letterArray.indexOf(event.key.toLowerCase()) === -1) {
+              if(letterArray.indexOf(String.fromCharCode(e.keyCode).toLowerCase()) === -1) {
 
             
 
-        letterEntry.textContent = event.key;
+        letterEntry.textContent = String.fromCharCode(e.keyCode);
         letterList.push(letterEntry.textContent.toUpperCase());
-        letterEntry.textContent = letterList;
-        keyCodeList.push(e.keyCode);
+        letterEntry.textContent = letterList.join("   ");
+        keyCodeList.push(parseInt(e.keyCode));
 
         guessesLeft = guessesLeft - 1;
           guessesLeftText.textContent = guessesLeft;
 
           console.log(guessesLeft);
- 
+
+          
+                  
   
         }
 
@@ -101,8 +167,8 @@ for (var i = 0; i < choice.length; i++) {
 
         for (var i = 0; i < blankSpaces.length; i++) {
           
-        if (letterArray[i] === event.key.toLowerCase() || 
-          letterArray[i] === event.key.toUpperCase()) {
+        if (letterArray[i] === String.fromCharCode(e.keyCode).toLowerCase() || 
+          letterArray[i] === String.fromCharCode(e.keyCode).toUpperCase()) {
 
             blankSpaces[i] = letterArrayProper[i];
             
@@ -110,13 +176,15 @@ for (var i = 0; i < choice.length; i++) {
             $("#spaces-text").html(blankSpaces);
 
             
+
+            
         }
 
 
 
         }
 
-        // $("#spaces-text").prepend(event.key);
+       
 
 
 
@@ -126,7 +194,25 @@ for (var i = 0; i < choice.length; i++) {
 
       }
 
+// EXTRA STUFF
+
+     
+
+
+
+      }
+
+// EXTRA STUFF
+
+
+
   }
+
+
+
+
+
+        
 
    if (guessesLeft === 0) {
     guessesLeft = guessesLeft - 1;
@@ -157,7 +243,7 @@ for (var i = 0; i < choice.length; i++) {
           $("#win-condition").html("You won!");
           $("#win-condition").fadeIn();
           $(".boxxx").css("border-color", "green")
-          $(".boxxx").fadeIn(500).fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500);
+          $(".boxxx").fadeIn(1000).fadeOut(1000).fadeIn(1000).fadeOut(1000).fadeIn(1000).fadeOut(1000).fadeIn(1000);
 
           var audioElement = document.createElement("audio");
           audioElement.setAttribute("src", "assets/correct.mp3");
@@ -244,7 +330,7 @@ for (var i = 0; i < choice.length; i++) {
        }
 
 
-      };
+      
 
       
 
