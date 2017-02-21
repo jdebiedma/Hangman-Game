@@ -21,7 +21,7 @@ var guessesLeftText = document.getElementById("guesses-Left-Text");
 
 var guessesLeft = 6;
 
-console.log("Answer = " + choice);
+
 
 
 
@@ -52,7 +52,7 @@ for (var i = 0; i < choice.length; i++) {
 
 }
 
-  console.log(letterArrayProper);
+  
 
 
  var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", 
@@ -152,7 +152,7 @@ for (var i = 0; i < choice.length; i++) {
         guessesLeft = guessesLeft - 1;
           guessesLeftText.textContent = guessesLeft;
 
-          console.log(guessesLeft);
+          
 
           
                   
@@ -163,7 +163,7 @@ for (var i = 0; i < choice.length; i++) {
 
           //what to do when they get a letter right
 
-        console.log("correct");
+        
 
         for (var i = 0; i < blankSpaces.length; i++) {
           
